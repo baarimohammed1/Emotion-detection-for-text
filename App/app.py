@@ -1,19 +1,23 @@
 # Core Pkgs
 import streamlit as st 
+import sys
+import os
 
 # EDA Pkgs
 import pandas as pd 
 import numpy as np 
 
 #Utils
-import pathlib
-code_dir = pathlib.Path(__file__).parent.resolve()
-
-files_location = code_dir / "App"/ "models" / "emotion_classifier_pipe_lr_03.pkl"  
-files_location = files_location.resolve()
-
 import joblib 
-pipe_lr = joblib.load(open(files_location,"rb"))
+#pipe_lr = joblib.load(open("\\models/emotion_classifier_pipe_lr_03.pkl","rb"))
+
+#Getting relative path
+current_directory = os.getcwd()
+relative_path = "models/emotion_classifier_pipe_lr_03.pkl"
+file_path = os.path.join(current_directory, relative_path)
+
+pipe_lr = joblib.load(open(file_path, "rb"))
+
 
 def predict_emotions(docx):
 	results = pipe_lr.predict([docx])
