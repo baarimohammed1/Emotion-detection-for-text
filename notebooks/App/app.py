@@ -7,7 +7,7 @@ import numpy as np
 
 #Utils
 import joblib 
-pipe_lr = joblib.load(open("emotion_classifier_pipe_lr_03.pkl","rb"))
+pipe_lr = joblib.load(open("models/emotion_classifier_pipe_lr_03.pkl","rb"))
 
 def predict_emotions(docx):
 	results = pipe_lr.predict([docx])
