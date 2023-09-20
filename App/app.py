@@ -6,8 +6,14 @@ import pandas as pd
 import numpy as np 
 
 #Utils
+import pathlib
+code_dir = pathlib.Path(__file__).parent.resolve()
+
+files_location = code_dir / ".." / "models" / "emotion_classifier_pipe_lr_03.pkl"  
+files_location = files_location.resolve()
+
 import joblib 
-pipe_lr = joblib.load(open("\\models/emotion_classifier_pipe_lr_03.pkl","rb"))
+pipe_lr = joblib.load(open(files_location,"rb"))
 
 def predict_emotions(docx):
 	results = pipe_lr.predict([docx])
