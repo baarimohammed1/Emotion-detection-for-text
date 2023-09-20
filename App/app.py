@@ -9,7 +9,7 @@ import numpy as np
 import pathlib
 code_dir = pathlib.Path(__file__).parent.resolve()
 
-files_location = code_dir / ".." / "models" / "emotion_classifier_pipe_lr_03.pkl"  
+files_location = code_dir / "App"/ "models" / "emotion_classifier_pipe_lr_03.pkl"  
 files_location = files_location.resolve()
 
 import joblib 
